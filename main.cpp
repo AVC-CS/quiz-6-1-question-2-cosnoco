@@ -16,11 +16,9 @@ int writeFile(const string& filename) {
     string e_name, e_department;
     double salary;
 
-    cout << "Enter the number of employees: ";
     cin >> empl_num;
     ofs << empl_num << endl;
     
-    cout << "Enter each Employee's ID, Name, Department, and Salary: \n";
     for (int i = 0; i < empl_num; i++) {
         cin >> empl_ID >> e_name >> e_department >> salary;
         ofs << empl_ID << " " << e_name << " " << e_department << " " << salary << endl;
@@ -59,9 +57,5 @@ int readFile(const string& filename) {
 }
 
 int main() {
-    string filename = "employee.txt";
-
-    readFile(filename);
-
     return 0;
 }
