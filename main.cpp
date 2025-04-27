@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <iomanip>
 #include <string>
 #include "main.hpp"
 using namespace std;
@@ -42,12 +41,9 @@ int readFile(const string& filename) {
     int empl_ID;
     string e_name, e_department;
     double salary;
-    double total = 0.0, avg = 0.0;
 
     ifs >> empl_num;
-    
-    cout << "Number of employees: " << empl_num << endl;
-    cout << "ID\t\tName\t\tDepartment\t\tSalary" << endl;
+    cout << empl_num << endl;
 
     for (int i = 0; i < empl_num; i++) {
         ifs >> empl_ID >> e_name >> e_department >> salary;
@@ -55,15 +51,8 @@ int readFile(const string& filename) {
             cerr << "File Read Error\n";
             exit(0);
         }
-        total += salary;
-        cout << empl_ID << "\t" << e_name << "\t\t" << e_department << "\t\t" << salary << endl;
+        cout << empl_ID << " " << e_name << " " << e_department << " " << (int)salary << endl;
     }
-
-    if (empl_num > 0) {
-        avg = total / empl_num;
-    }
-
-    cout << "\tTotal: " << total << "\tAverage: " << avg << endl;
 
     ifs.close();
     return empl_num;
@@ -72,8 +61,7 @@ int readFile(const string& filename) {
 int main() {
     string filename = "employee.txt";
 
-    int empN = readFile(filename);
-    cout << "The total number of employees read: " << empN << endl;
+    readFile(filename);
 
     return 0;
 }
