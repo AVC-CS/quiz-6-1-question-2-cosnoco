@@ -18,3 +18,17 @@ int writeFile(const string& filename){
         cerr << "File Open Error\n";
         exit(0);
     }
+}
+
+cout << "Enter the number of employees: ";
+cin >> empl_num;
+ofs << empl_num << endl;
+
+cout << "Enter each Employee's ID, Name, Department, and Salary: \n";
+for (int i = 0; i < empl_num; i++) {
+    cin >> empl_ID >> e_name >> e_department >> salary;
+    ofs << empl_ID << " " << e_name << " " << e_department << " " << salary << endl;
+}
+
+ofs.close();
+return empl_num;
